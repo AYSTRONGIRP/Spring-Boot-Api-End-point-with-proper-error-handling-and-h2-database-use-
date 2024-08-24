@@ -36,3 +36,25 @@ curl -X POST http://localhost:8080/api/supplier/query \
     "size": 2
 }'
 
+aws hosted link -
+search query - 
+curl -X POST http://13.235.128.252:8080/api/supplier/query \
+-H "Content-Type: application/json" \
+-d '{
+    "location": "San Francisco",
+    "natureOfBusiness": "LARGE_SCALE",
+    "manufacturingProcesses": "CASTING",
+    "page": 0,
+    "size": 10
+}'
+
+post new supplier - 
+curl -X POST http://13.235.128.252:8080/api/supplier/add \
+-H "Content-Type: application/json" \
+-d '{
+    "companyName": "Tech Manufacturing Inc.",
+    "website": "https://www.techmfg.com",
+    "location": "San Francisco",
+    "natureOfBusiness": "LARGE_SCALE",
+    "manufacturingProcesses": "CASTING"
+}'

@@ -33,17 +33,17 @@ public class SupplierService {
     }
 
     public Page<Supplier> findByCriteria(String location, NatureOfBusiness natureOfBusiness, ManufacturingProcess manufacturingProcesses, Pageable pageable) {
-        validateEnums(natureOfBusiness, manufacturingProcesses);
+//        validateEnums(natureOfBusiness, manufacturingProcesses);
         return supplierRepository.findByCriteria(location, natureOfBusiness, manufacturingProcesses, pageable);
     }
 
-    private void validateEnums(Supplier supplier) {
-        validateEnums(supplier.getNatureOfBusiness(), supplier.getManufacturingProcesses());
-    }
-
-    private void validateEnums(NatureOfBusiness natureOfBusiness, ManufacturingProcess manufacturingProcesses) {
-        if (natureOfBusiness == null || manufacturingProcesses == null) {
-            throw new InvalidEnumValueException("Invalid Nature of Business or Manufacturing Process.");
-        }
-    }
+//    private void validateEnums(Supplier supplier) {
+//        validateEnums(supplier.getNatureOfBusiness(), supplier.getManufacturingProcesses());
+//    }
+//
+//    private void validateEnums(NatureOfBusiness natureOfBusiness, ManufacturingProcess manufacturingProcesses) {
+//        if (natureOfBusiness == null || manufacturingProcesses == null) {
+//            throw new InvalidEnumValueException("Invalid Nature of Business or Manufacturing Process.");
+//        }
+//    }
 }

@@ -5,6 +5,7 @@ import com.example.demo2.model.NatureOfBusiness;
 import com.example.demo2.model.Supplier;
 import com.example.demo2.service.SupplierService;
 import com.example.demo2.model.SupplierQueryRequest; // Import the DTO class
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,13 +26,13 @@ public class SupplierController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Supplier> addSupplier(@RequestBody Supplier supplier) {
+    public ResponseEntity<Supplier> addSupplier(@Valid @RequestBody Supplier supplier) {
         Supplier savedSupplier = supplierService.saveSupplier(supplier);
         return ResponseEntity.ok(savedSupplier);
     }
 
     @PostMapping("/query")
-    public ResponseEntity<Page<Supplier>> querySuppliers(@RequestBody SupplierQueryRequest request) {
+    public ResponseEntity<Page<Supplier>> querySuppliers(@Valid @RequestBody SupplierQueryRequest request) {
         Pageable pageable = PageRequest.of(request.getPage(), request.getSize());
         Page<Supplier> suppliers = supplierService.findByCriteria(
                 request.getLocation(),
